@@ -1,0 +1,22 @@
+﻿version: "3.9"
+
+services:
+  movieapi:
+    build: .
+    container_name: movieapi
+    ports:
+     - "5001:80"
+    depends_on:
+     - db
+    restart: always
+    env_file: .env
+  db:
+    image: postgres:15.2-alpine
+    volumes:
+    - ./database:/var/lib/postgresql/data
+    ports:
+    - 5432:5432
+    environment:
+      - POSTGRES_DB=movies
+      - POSTGRES_USER=developer
+      - POSTGRES_PASSWORD=secret
