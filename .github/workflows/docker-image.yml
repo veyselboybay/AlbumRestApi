@@ -26,5 +26,5 @@ jobs:
         REPOSITORY: albumrestapi
         IMAGE_TAG: latest
       run: |
-        docker build -t $REGISTERS/REPOSITORY:IMAGE_TAG .
-        docker push $REGESTERY/REPOSITORY:IMAGE_TAG
+        docker build -t $REGISTERS/$REPOSITORY:$IMAGE_TAG .
+        docker push $REGESTERY/$REPOSITORY:$IMAGE_TAG
